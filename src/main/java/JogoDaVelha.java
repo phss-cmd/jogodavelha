@@ -1,3 +1,6 @@
+import java.security.KeyStore;
+import java.util.Scanner;
+
 public class JogoDaVelha {
 
     public static void main(String[] args) {
@@ -10,7 +13,37 @@ public class JogoDaVelha {
 
         };
 
-        imprimirTabuleiro(tabuleiro);
+        Scanner sc = new Scanner(System.in);
+
+        String jogador = "x";
+
+        while (true){
+
+            imprimirTabuleiro(tabuleiro);
+
+            System.out.println("Jogador " + jogador);
+            System.out.println(" Digite a linha e coluna desejada!!!");
+            int linha = sc.nextInt();
+            int coluna = sc.nextInt();
+
+            if(linha <1 || linha >3){
+                continue;
+            }
+
+            if(coluna <1 || coluna >3){
+                continue;
+            }
+
+            if (!tabuleiro[linha -1][coluna -1].isBlank()){
+
+                System.out.println("Posição informada já preenchida, Escolha uma em branco!");
+                    continue;
+
+            }
+
+        }
+
+
 
     }
 
